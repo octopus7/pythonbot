@@ -17,6 +17,7 @@ f.close()
 # c1
 # c3
 # a1
+# a2
 
 with open('test.txt') as f:
     lines = f.read().split()
