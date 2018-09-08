@@ -39,7 +39,7 @@ with open(drvpath_filepath, 'r') as myfile:
     chromepath = myfile.read()
 
 options = Options()
-#options.add_argument('--headless')
+options.add_argument('--headless')
 browser = webdriver.Chrome(chromepath, chrome_options=options)
 browser.get("https://m.interpark.com/auth/login.html")
 print(browser.title)
