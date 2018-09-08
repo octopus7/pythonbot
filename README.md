@@ -30,6 +30,7 @@ sudo make altinstall
 pip3.6 사용
 ```bash
 sudo apt-get install libffi-dev,python-cffi
+sudo pip3.6 install --upgrade pip
 sudo pip3.6 install selenium
 sudo pip3.6 install python-telegram-bot --upgrade
 ```
