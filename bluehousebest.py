@@ -11,6 +11,10 @@ chromepath = 'chromedriver'
 
 drvpath_filepath = pypath +'/../drvpath.txt'
 
+htmlpath = pypath +'/html'
+if not os.path.exists(htmlpath):
+    os.makedirs(htmlpath)
+
 if not  os.path.isfile(drvpath_filepath):
     print(drvpath_filepath + " not found!")
     quit();
@@ -26,5 +30,8 @@ for page in range(1,4):
     print("page : " + str(page))
     browser.get("https://www1.president.go.kr/petitions?order=best&page=" + str(page))
     print(browser.title)
+    f = open(htmlpath+"/" +str(page) +".htm", encoding='utf-8', mode = 'w')
+    f.write(browser.page_source)
+    f.close()
 
 browser.quit()
