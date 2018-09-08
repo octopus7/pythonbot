@@ -1,3 +1,5 @@
+#-*- coding: utf-8 -*-
+
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import os
@@ -6,7 +8,14 @@ pypath = os.path.dirname(os.path.abspath(__file__))
 print(pypath)
 
 chromepath = 'chromedriver'
-with open('drvpath.txt', 'r') as myfile:
+
+drvpath_filepath = pypath +'/../drvpath.txt'
+
+if not  os.path.isfile(drvpath_filepath):
+    print(drvpath_filepath + " not found!")
+    quit();
+
+with open(drvpath_filepath, 'r') as myfile:
     chromepath = myfile.read()
 
 options = Options()
