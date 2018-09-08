@@ -18,8 +18,8 @@ with open(account_path, 'r') as myfile:
     id = myfile.readline().rstrip()
     password = myfile.readline().rstrip()
 
-print (id)
-print (password)
+#print (id)
+#print (password)
 
 my_token = "telegramtoken"
 my_userid = 0
@@ -36,7 +36,7 @@ if not  os.path.isfile(drvpath_filepath):
     quit();
 
 with open(drvpath_filepath, 'r') as myfile:
-    chromepath = myfile.read()
+    chromepath = myfile.read().rstrip()
 
 options = Options()
 options.add_argument('--headless')
