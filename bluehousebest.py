@@ -10,9 +10,9 @@ print(pypath)
 
 chromepath = 'chromedriver'
 
-drvpath_filepath = pypath +'/../drvpath.txt'
+drvpath_filepath = f'{pypath}/../drvpath.txt'
 
-htmlpath = pypath +'/html_bluehouse'
+htmlpath = f'{pypath}/html_bluehouse'
 if not os.path.exists(htmlpath):
     os.makedirs(htmlpath)
 
@@ -30,10 +30,11 @@ browser = webdriver.Chrome(chromepath, chrome_options=options)
 datetime_onstart  =datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
 
 for page in range(1,4):
-    print("page : " + str(page))
-    browser.get("https://www1.president.go.kr/petitions?order=best&page=" + str(page))
+    url = f"https://www1.president.go.kr/petitions?order=best&page={page}"
+    print(f"page : {page} {url}")
+    browser.get(url)
     print(browser.title)
-    f = open(htmlpath+"/" + datetime_onstart +"_"+str(page) +".htm", encoding='utf-8', mode = 'w')
+    f = open(f"{htmlpath}/{datetime_onstart}_{page}.htm", encoding='utf-8', mode = 'w')
     f.write(browser.page_source)
     f.close()
 
