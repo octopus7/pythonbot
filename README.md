@@ -15,7 +15,20 @@ pip install python-telegram-bot --upgrade
 
 ## 라즈베리파이
 python3.6 수동설치 필요합니다
-pip3.6 사용
 
-pip3.6 install selenium
-pip3.6 install python-telegram-bot --upgrade
+>sudo apt-get update
+sudo apt-get install build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev
+wget https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tar.xz
+tar xf Python-3.6.5.tar.xz
+cd Python-3.6.5
+./configure
+make -j 4
+sudo make altinstall
+
+pip3.6 사용
+>sudo pip3.6 install selenium
+sudo pip3.6 install python-telegram-bot --upgrade
+
+crontab 에서는 패스지정 필요함
+>PATH=/usr/local/bin:/usr/bin:$PATH
+PYTHONPATH=/usr/local/lib/python3.6/site-packages
