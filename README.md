@@ -14,9 +14,7 @@ pip install selenium
 pip install python-telegram-bot --upgrade
 
 ## 라즈베리파이
-python3.6 수동설치 필요합니다
-
-
+python3.6 수동설치 필요합니다 (2018-09-08 기준 raspbian 최신 3.5.3)
 
 ```bash
 sudo apt-get update
