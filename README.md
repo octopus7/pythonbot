@@ -16,3 +16,6 @@ pip install python-telegram-bot --upgrade
 ## 라즈베리파이
 python3.6 수동설치 필요합니다
 pip3.6 사용
+
+pip3.6 install selenium
+pip3.6 install python-telegram-bot --upgrade
