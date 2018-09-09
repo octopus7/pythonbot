@@ -1,7 +1,5 @@
 # Python Bot
 
-공통
-pip install selenium
 
 ## 청와대 청원 
 청원 추천순 1,2,3 페이지를 저장합니다
@@ -12,6 +10,25 @@ pip install selenium
 텔레그램 봇토큰/받을유저ID 필요
 
 pip install python-telegram-bot --upgrade
+
+## 환경구성
+
+### 공통
+
+셀레니움 필요
+```
+pip install selenium
+```
+
+### 리눅스
+
+크롬드라이버 필요
+```bash
+sudo apt-get install chromium-browser
+sudo apt-get install chromium-chromedriver
+```
+
+
 
 ## 라즈베리파이
 python3.6 수동설치 필요합니다 (2018-09-08 기준 raspbian 최신 3.5.3)
