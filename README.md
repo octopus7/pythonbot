@@ -1,17 +1,44 @@
 # Python Bot
 
-공통
-pip install selenium
 
 ## 청와대 청원 
+bluehousebest.py
 청원 추천순 1,2,3 페이지를 저장합니다
 
 ## 인터파크 포인트
+point.py
 포인트를 읽어서 텔레그램으로 전송합니다
 인터파크 아이디/패스워드
 텔레그램 봇토큰/받을유저ID 필요
 
 pip install python-telegram-bot --upgrade
+
+## 환경구성
+
+### 공통
+
+셀레니움 필요
+```
+pip install selenium
+```
+
+상위 디렉토리로 os에 맞는 크롬드라이버 경로가 적힌 drvpath.txt 파일을 생성
+
+Windows 
+drvpath_raspbian.txt 을 상위에 drvpath.txt 복사
+
+Linux
+cp drvpath_raspbian.txt ../drvpath.txt
+
+### 리눅스
+
+크롬드라이버 필요
+```bash
+sudo apt-get install chromium-browser
+sudo apt-get install chromium-chromedriver
+```
+
+
 
 ## 라즈베리파이
 python3.6 수동설치 필요합니다 (2018-09-08 기준 raspbian 최신 3.5.3)

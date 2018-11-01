@@ -16,7 +16,7 @@ password = ""
 account_path = f'{pypath}/../interpark.txt'
 with open(account_path, 'r') as myfile:
     id = myfile.readline().rstrip()
-    password = myfile.readline()
+    password = myfile.readline().rstrip()
 
 #print (id)
 #print (password)
@@ -26,7 +26,7 @@ my_userid = 0
 telegram_path = f'{pypath}/../telegram.txt'
 with open(telegram_path, 'r') as myfile:
     my_token = myfile.readline().rstrip()
-    my_userid = myfile.readline()
+    my_userid = myfile.readline().rstrip()
 
 chromepath = 'chromedriver'
 drvpath_filepath = f'{pypath}/../drvpath.txt'
@@ -36,13 +36,17 @@ if not  os.path.isfile(drvpath_filepath):
     quit();
 
 with open(drvpath_filepath, 'r') as myfile:
-    chromepath = myfile.read()
+    chromepath = myfile.read().rstrip()
 
 options = Options()
 options.add_argument('--headless')
 browser = webdriver.Chrome(chromepath, chrome_options=options)
 browser.get("https://m.interpark.com/auth/login.html")
+browser.implicitly_wait(1)
+
 print(browser.title)
+
+browser.save_screenshot("ip.png")
 
 browser.find_element_by_name("userId").send_keys(id)
 browser.find_element_by_name("userPwd").send_keys(password)
