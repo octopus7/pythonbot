@@ -58,8 +58,9 @@ point = "Interpark " +  datetime.datetime.now().strftime("%Y-%m-%d")
 point += "\n" + browser.find_element_by_id("usableAmt").text
 lines = browser.find_element_by_id("conts01").text.splitlines()
 for lidx in range(0,6):
-    now = "\n" + lines[lidx*4+0] + str(lines[lidx*4+1])[5:] + lines[lidx*4+2]
-    now = now.replace("적립","")
+    now = "\n" + lines[lidx * 4 + 0] + " "+ lines[lidx * 4 + 1] + " "+ lines[lidx * 4 + 2]
+    #now = "\n" + lines[lidx*4+0] + str(lines[lidx*4+1])[5:] + lines[lidx*4+2]
+    #now = now.replace("적립","")
     point += now;
 systemver = sys.version
 
