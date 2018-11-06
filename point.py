@@ -16,7 +16,7 @@ password = ""
 account_path = f'{pypath}/../interpark.txt'
 with open(account_path, 'r') as myfile:
     id = myfile.readline().rstrip()
-    password = myfile.readline().rstrip()
+    password = myfile.readline()
 
 #print (id)
 #print (password)
@@ -26,7 +26,7 @@ my_userid = 0
 telegram_path = f'{pypath}/../telegram.txt'
 with open(telegram_path, 'r') as myfile:
     my_token = myfile.readline().rstrip()
-    my_userid = myfile.readline().rstrip()
+    my_userid = myfile.readline()
 
 chromepath = 'chromedriver'
 drvpath_filepath = f'{pypath}/../drvpath.txt'
@@ -36,7 +36,7 @@ if not  os.path.isfile(drvpath_filepath):
     quit();
 
 with open(drvpath_filepath, 'r') as myfile:
-    chromepath = myfile.read().rstrip()
+    chromepath = myfile.read()
 
 options = Options()
 options.add_argument('--headless')
@@ -45,8 +45,6 @@ browser.get("https://m.interpark.com/auth/login.html")
 browser.implicitly_wait(1)
 
 print(browser.title)
-
-browser.save_screenshot("ip.png")
 
 browser.find_element_by_name("userId").send_keys(id)
 browser.find_element_by_name("userPwd").send_keys(password)
@@ -61,7 +59,12 @@ browser.implicitly_wait(1)
 point = "Interpark " +  datetime.datetime.now().strftime("%Y-%m-%d")
 point += "\n" + browser.find_element_by_id("usableAmt").text
 lines = browser.find_element_by_id("conts01").text.splitlines()
-for lidx in range(0,6):
+linecount = len(lines) / 4
+if linecount > 3:
+    linecount = 3
+
+for lidx in range(0,linecount):
+    print(lidx)
     now = "\n" + lines[lidx * 4 + 0] + " "+ lines[lidx * 4 + 1] + " "+ lines[lidx * 4 + 2]
     #now = "\n" + lines[lidx*4+0] + str(lines[lidx*4+1])[5:] + lines[lidx*4+2]
     #now = now.replace("적립","")
